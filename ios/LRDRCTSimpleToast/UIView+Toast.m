@@ -395,9 +395,9 @@ static const NSString * CSToastQueueKey             = @"CSToastQueueKey";
     } else if ([point isKindOfClass:[NSValue class]]) {
         return [point CGPointValue];
     }
-    
+
     // default to bottom
-    return CGPointMake(self.bounds.size.width/2, (self.bounds.size.height - (toast.frame.size.height / 2)) - style.verticalPadding);
+    return CGPointMake(self.bounds.size.width/2, (self.bounds.size.height - (toast.frame.size.height / 2)) - style.verticalPadding - 10);
 }
 
 @end
@@ -409,16 +409,18 @@ static const NSString * CSToastQueueKey             = @"CSToastQueueKey";
 - (instancetype)initWithDefaultStyle {
     self = [super init];
     if (self) {
-        self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
+        // [[UIColor blackColor] colorWithAlphaComponent:0.6];
+        // rgba(187, 187, 187, 0.95)
+        self.backgroundColor =[UIColor colorWithRed:187.0f/255.0f green:187.0f/255.0f blue:187.0f/255.0f alpha:0.95f];
         self.titleColor = [UIColor whiteColor];
         self.messageColor = [UIColor whiteColor];
-        self.maxWidthPercentage = 0.8;
+        self.maxWidthPercentage = 1.0;
         self.maxHeightPercentage = 0.8;
-        self.horizontalPadding = 10.0;
+        self.horizontalPadding = 40.0;
         self.verticalPadding = 10.0;
-        self.cornerRadius = 10.0;
-        self.titleFont = [UIFont boldSystemFontOfSize:16.0];
-        self.messageFont = [UIFont systemFontOfSize:16.0];
+        self.cornerRadius = 16.0;
+        self.titleFont = [UIFont fontWithName:@"NewsGothicBT-Light" size:16];
+        self.messageFont = [UIFont fontWithName:@"NewsGothicBT-Light" size:16];
         self.titleAlignment = NSTextAlignmentLeft;
         self.messageAlignment = NSTextAlignmentLeft;
         self.titleNumberOfLines = 0;
