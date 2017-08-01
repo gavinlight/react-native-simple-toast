@@ -414,7 +414,7 @@ static const NSString * CSToastQueueKey             = @"CSToastQueueKey";
         self.backgroundColor =[UIColor colorWithRed:187.0f/255.0f green:187.0f/255.0f blue:187.0f/255.0f alpha:0.95f];
         self.titleColor = [UIColor whiteColor];
         self.messageColor = [UIColor whiteColor];
-        self.maxWidthPercentage = 1.0;
+        self.maxWidthPercentage = 0.7;
         self.maxHeightPercentage = 0.8;
         self.horizontalPadding = 40.0;
         self.verticalPadding = 10.0;
@@ -437,11 +437,11 @@ static const NSString * CSToastQueueKey             = @"CSToastQueueKey";
 }
 
 - (void)setMaxWidthPercentage:(CGFloat)maxWidthPercentage {
-    _maxWidthPercentage = MAX(MIN(maxWidthPercentage, 1.0), 0.0);
+    _maxWidthPercentage = MAX(MIN(maxWidthPercentage, 0.7), 0.0);
 }
 
 - (void)setMaxHeightPercentage:(CGFloat)maxHeightPercentage {
-    _maxHeightPercentage = MAX(MIN(maxHeightPercentage, 1.0), 0.0);
+    _maxHeightPercentage = MAX(MIN(maxHeightPercentage, 0.8), 0.0);
 }
 
 - (instancetype)init NS_UNAVAILABLE {
